@@ -1,0 +1,11 @@
+https://cloudblogs.microsoft.com/industry-blog/en-gb/technetuk/2019/05/22/how-to-use-containers-part-1/
+
+
+
+get docker up and runnig .
+https://stackoverflow.com/questions/47854463/docker-got-permission-denied-while-trying-to-connect-to-the-docker-daemon-socke
+
+Add user to docker group
+* sudo usermod -a -G docker azureuser
+refresh (instead of logging out and in again)
+* newgrp docker

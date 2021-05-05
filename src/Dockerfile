@@ -1,0 +1,12 @@
+FROM python:3.7
+
+COPY . /home/site/wwwroot
+
+RUN apt-get update && \
+	apt-get install gunicorn -y
+
+WORKDIR /home/site/wwwroot
+RUN pip install -r requirements.txt 
+
+EXPOSE 8000
+CMD ["gunicorn", "-b", "0.0.0.0:8000", "mealapp:app"]
