@@ -1,11 +1,11 @@
 # working directory
-mkdir working
-cd working 
-mkdir ngs-lib 
-cd ngs-lib 
+#mkdir working
+#cd working 
+#mkdir ngs-lib 
+#cd ngs-lib 
 
 # clone repository 
-git clone https://ngs90.visualstudio.com/ngs90/_git/ngs90
+#git clone https://ngs90.visualstudio.com/ngs90/_git/ngs90
 
 
 # Install python3.8z
