@@ -1,13 +1,15 @@
 # Example from: https://www.fullstackpython.com/blog/responsive-bar-charts-bokeh-flask-python-3.html
+
 import random
-from flask import Flask, render_template, request
-from wtforms import TextAreaField
+from bokeh.models import (HoverTool, FactorRange, Plot, LinearAxis, Grid,
+                          Range1d)
+from bokeh.models.glyphs import VBar
+from bokeh.plotting import figure
+from bokeh.embed import components
+from bokeh.models.sources import ColumnDataSource
 
-import app_charts 
 
-app = Flask(__name__)
 
-@app.route("/<int:bars_count>/", methods=['POST'])
 def chart(bars_count):
     if bars_count <= 0:
         bars_count = 1
@@ -23,15 +25,10 @@ def chart(bars_count):
                             "bugs", hover)
     script, div = components(plot)
 
+    return script, div 
 
-
-
-    return render_template("chart.html", bars_count=bars_count,
-                           the_div=div, the_script=script, text=processed_text)
-
-
-
-
+    #return render_template("chart.html", bars_count=bars_count,
+    #                       the_div=div, the_script=script, text=processed_text)
 
 
 def create_hover_tool():
@@ -89,6 +86,3 @@ def create_bar_chart(data, title, x_name, y_name, hover_tool=None,
     plot.xaxis.major_label_orientation = 1
     return plot
 
-
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=True, port=8080)

@@ -1,0 +1,36 @@
+<DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <center>
+            <form method="POST">
+                <p>Write text to be classified</p>
+                
+                <textarea name="text_field", rows=5, cols=50>{% if text %}{{text | safe}}{% endif %}</textarea>
+                <br><br>
+                <input name="value_field">
+                <br>
+                <input type="submit">
+            </form>
+        </center>
+        <!--
+        {% if text %}
+        <h3>{{ text | safe}}</h3>
+        {% else %}
+        <h3>Write some text and submit</h3>
+         {% endif %} 
+        --> 
+
+        <br>
+
+        {% block body %}{% endblock %}
+
+
+    </body>
+</html>
+
+
